@@ -1,0 +1,4 @@
+name: APOC-commandsync
+version: @version@
+main: org.apocgaming.apocsync.apocsyncmain
+description: sends admin commands to servers on the network for apocgaming.org
