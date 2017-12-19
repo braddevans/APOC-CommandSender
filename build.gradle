@@ -7,6 +7,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    flatDir {
+        dirs "$rootProject.projectDir/lib"
+    }
     mavenCentral()
     maven {
         name = 'sonatype-oss-repo'
@@ -16,7 +19,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'net.md-5:bungeecord-api:1.8-SNAPSHOT'
+    compile 'net.md-5:bungeecord-api:1.6.4-SNAPSHOT'
+    compile files('lib/BungeeCord-1.6.4.jar')
+    compile files('lib/Bukkit-1.7.10.jar')
+    compile files('lib/Bukkit-1.6.4.jar')
 }
 
 import org.apache.tools.ant.filters.ReplaceTokens
