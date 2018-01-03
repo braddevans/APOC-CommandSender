@@ -1,8 +1,21 @@
-name: APOC-commandsync
-version: @version@
+name: APOC-CommandSync
 main: org.apocgaming.apocsync.bukkit.Main
-description: sends admin commands to servers on the network for apocgaming.org
+version: 1.0
+author: braddevans
+description: something made for apocgaming.org
+
 commands:
-  apocexec:
-    aliases: [ae]
-    description: Admin commands.
+   apocexec:
+     description: executes command on all servers
+     aliases: [ae, apocexec]
+     permission: apocexec.admin
+     usage: /apocexec <command [args]>
+
+permissions:
+ apocexec.*:
+   description: Gives access to all apoc global executor commands.
+   children:
+     apocexec.admin: true
+ apocexec.admin:
+   description: execute commands globaly
+   default: op
