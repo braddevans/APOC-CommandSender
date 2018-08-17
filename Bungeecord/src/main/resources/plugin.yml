@@ -1,0 +1,4 @@
+name: APOC-CommandSync
+main: org.apocgaming.apocsync.bungee.apocsyncmain
+version: 2.0
+author: braddevans
