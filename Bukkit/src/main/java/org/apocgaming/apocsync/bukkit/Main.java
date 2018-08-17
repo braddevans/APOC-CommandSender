@@ -20,21 +20,23 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         DataInputStream in = new DataInputStream(new ByteArrayInputStream(message));
 
         try {
-            //strings
+
             String sub = in.readUTF();
-            //end of strings
 
             if (sub.equals("command")) {
-                if (sub.toString().toLowerCase().equals("op")) {
+
+                String cmd = sub.toLowerCase();
+
+                if (cmd.startsWith("op")) {
                     p.sendMessage("[ApocCommandSync]: Received a command, Command: /op, not executing it.");
-                } else if (sub.toString().toLowerCase().equals("stop")) {
+                } else if (cmd.startsWith("stop")) {
                     p.sendMessage("[ApocCommandSync]: Received a command, Command: /stop, not executing it.");
-                } else if (sub.toString().toLowerCase().equals("restart")) {
+                } else if (cmd.startsWith("restart")) {
                     p.sendMessage("[ApocCommandSync]: Received a command, Command: /restart, not executing it.");
                 } else {
                     p.sendMessage("[Apoc Sync] Received a command message from BungeeCord, executing it.");
                     getServer().dispatchCommand(getServer().getConsoleSender(), sub);
-                    p.sendMessage("cmd: " + sub + "   |in lowercase and to a string|   " + sub.toLowerCase().toString());
+                    p.sendMessage("cmd: " + cmd);
                 }
             }
 
