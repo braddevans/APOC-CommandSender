@@ -27,17 +27,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
                 String cmd = sub.toLowerCase();
 
-                if (cmd.startsWith("op")) {
-                    p.sendMessage("[ApocCommandSync]: Received a command, Command: /op, not executing it.");
-                } else if (cmd.startsWith("stop")) {
-                    p.sendMessage("[ApocCommandSync]: Received a command, Command: /stop, not executing it.");
-                } else if (cmd.startsWith("restart")) {
-                    p.sendMessage("[ApocCommandSync]: Received a command, Command: /restart, not executing it.");
-                } else {
-                    p.sendMessage("[Apoc Sync] Received a command message from BungeeCord, executing it.");
-                    getServer().dispatchCommand(getServer().getConsoleSender(), sub);
-                    p.sendMessage("cmd: " + cmd);
-                }
+                p.sendMessage("[Apoc Sync] Received a command message from BungeeCord, executing it.");
+                getServer().dispatchCommand(getServer().getConsoleSender(), sub);
+                p.sendMessage("cmd: " + cmd);
             }
 
         } catch (Exception ex) {

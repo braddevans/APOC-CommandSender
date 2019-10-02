@@ -1,45 +1,39 @@
-allprojects {
-  
-}
-
-subprojects {
+allprojects{
 	apply plugin: "java"
-  
-	group = pluginGroup
-	version = pluginVersion
+	apply plugin: 'maven-publish'
+
+	group 'org.apocgaming.apocsync'
+	version '1-SNAPSHOT'
 
 	sourceCompatibility = 1.7
 	targetCompatibility = 1.7
-  
-	repositories {
-		flatDir {
-			dirs "$rootProject.projectDir/lib"
-		}
-		mavenCentral()
-		maven {
-			name = 'sonatype-oss-repo'
-			url = 'https://oss.sonatype.org/content/groups/public/'
-		}
-    
-	}
-	
+
 	dependencies {
-		testCompile group: 'junit', name: 'junit', version: '4.12'
-		compile 'net.md-5:bungeecord-api:1.6.4-SNAPSHOT'
-		compile files('lib/BungeeCord-1.6.4.jar')
-		compile files('lib/Bukkit-1.7.10.jar')
-		compile files('lib/Bukkit-1.6.4.jar')
+		compile fileTree(dir: 'lib', include: '*.jar')
 	}
 }
-
-
 
 project(':Bukkit') {
-	
+	sourceSets {
+		main {
+			java {
+				srcDir new File("/src/main/java/")
+			}
+			resources {
+				srcDir new File("/src/main/resources")
+			}
+		}
+	}
 }
 project(':Bungeecord') {
-	
-}
-project(':Chat') {
-	
+	sourceSets {
+		main {
+			java {
+				srcDir new File("/src/main/java/")
+			}
+			resources {
+				srcDir new File("/src/main/resources")
+			}
+		}
+	}
 }

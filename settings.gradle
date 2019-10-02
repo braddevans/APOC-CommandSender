@@ -1,1 +1,1 @@
-include ":Bungeecord", ":Bukkit", ":Chat"
+include ":Bungeecord", ":Bukkit"
